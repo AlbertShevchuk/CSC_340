@@ -1,0 +1,73 @@
+/*
+		Albert Shevchuk 
+		CSC340 T/Th @ 2:10pm 
+		3/10/17
+		Sublime Text
+*/
+
+problem: #1
+
+loop untill end of article, incrument by sentence   						// first loop
+{	
+	sentence <- sentenceSplitter(article)									// use sentence positon in article to incrument first loop 
+	sentence <- tokenizer(sentence)											// filter words and store into vector 
+	loop untill end of sentence - 1 word									// second loop, vector sentence untill pre last word because last word does not need to {																	   	// be compared
+	 	loop untill end of sentence with start position (second loop + 1) 	// third loop,use positon of 2nd loop to compare with 3rd loop that is ahead by 1 word 
+	 	{	
+	 		if(2nd loop word == 3rd loop word)
+	 		{
+	 			if (match is empty)											// if the vector is empty then
+	 			{
+	 				match <- (word, 1)										// pack new vector struct with member matched word and frequentcy 1
+	 			}
+	 			else
+	 			{
+	 				loop untill end of match 								// forth loop runs threw match to see if matched word already exist in vector
+	 				{
+	 					if (match == word)
+	 					{
+	 						match[position] <- +1 frequentcy				// if the matched word was found already in veactor match then just add 1 frequency
+	 					}													// to the already existing found vector
+	 				} 
+	 			}	
+	 		}
+	 	}
+	}
+}
+
+sort(match by freq) 														// sort in decending order
+loop print first 149 														// 0 counts a first 							 
+
+problem: #2
+
+
+loop untill end D transactions 												// first loop goes threw D
+{
+	loop threw D's subset individual products 								// second loop, uses 1st loops trasnactions to acces individual producs
+	{
+		loop untill end P products											// third loop, runs threw P products awalable
+		{
+			if(invividual product of D == a product in P)					// then we compare the individual products to products avalable
+			{
+				keepProd <- individual product of D 						// and all the individual producs that match with products awalable get stored into
+			}																// a vector of keepProd
+		}
+	}		
+	if (prodPairs is empty)													// if vector is empty then
+	{ 
+		prodPairs <- getPairs(keepProd)										// call function that identifyes all the different combonation of pairs in keepProd
+																			// then stores it into a vector struct of strings
+	}
+	else
+	{
+		loop untill end of prodPairs										// forth loop runs threw prodPairs to see if matched pair apready exist in vector
+		{
+			if (prodPairs == getPairs(keepProd))
+			{
+				prodPairs[position] <- +1 frequency 						// if matched pair was found alread in vector prodPairs then just add 1 frequency
+																			// to the already existing found vector
+			}
+		} 
+	} 
+}																				
+
